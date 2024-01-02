@@ -1,0 +1,604 @@
+// Font Imports
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://use.typekit.net/uka6nnw.css");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@400;500;600;700&display=swap');
+
+// Variables
+$bg: white;
+$bg-secondary: #ECF6FF;
+$primary: #0019FF;
+$secondary: #8A80FF;
+
+$app-x-padding: 10vw;
+
+// Global Styles
+body {
+  background: $bg;
+  color: $primary;
+
+  font-family: "neue-haas-grotesk-text", sans-serif;
+
+  p {
+    color: $secondary;
+    line-height: 1.5;
+
+    strong {
+      color: $primary;
+      font-weight: inherit;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+h1,h2,h3 {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.08em;
+  font-weight: 500;
+}
+
+.emoji {
+  font-family: 'Noto Emoji', sans-serif;
+}
+
+// Main Styles
+nav {
+  position: fixed;
+  top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem $app-x-padding;
+  z-index: 999;
+
+  h2 {
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+
+  .nav-socials {
+    display: flex;
+    gap: 0.5rem;
+
+    a {
+      background: black;
+      border-radius: 50%;
+      width: 1.75rem;
+      height: 1.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        max-width: 1rem;
+      }
+
+      transition: 0.2s ease;
+      &:hover {
+        background: $primary;
+        transform: scale(1.1) rotate(10deg);
+      }
+    }
+  }
+
+  &.collapsed {
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    gap: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5rem;
+    background: white;
+  }
+}
+
+.hero {
+  padding: 8.5rem $app-x-padding 4rem $app-x-padding;
+  height: 100vh;
+  height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 9.5vw;
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+
+    .typing::after {
+      height: 1.2em !important;
+      margin-left: 0.1em;
+    }
+    .selected {
+      outline: 4px solid $primary;
+      padding: 0.1em 0.2em 0.1em 0.1em;
+      position: relative;
+
+      &:before {
+        content: "";
+        width: 12px;
+        aspect-ratio: 1/1;
+        background: white;
+        border: 4px solid $primary;
+        border-radius: 50%;
+        position: absolute;
+        top: -11px;
+        left: -11px;
+      }
+      &:after {
+        content: "";
+        width: 12px;
+        aspect-ratio: 1/1;
+        background: white;
+        border: 4px solid $primary;
+        border-radius: 50%;
+        position: absolute;
+        top: -11px;
+        right: -11px;
+      }
+      .selected-bottom-dots {
+        &:before {
+          content: "";
+          width: 12px;
+          aspect-ratio: 1/1;
+          background: white;
+          border: 4px solid $primary;
+          border-radius: 50%;
+          position: absolute;
+          bottom: -11px;
+          left: -11px;
+        }
+        &:after {
+          content: "";
+          width: 12px;
+          aspect-ratio: 1/1;
+          background: white;
+          border: 4px solid $primary;
+          border-radius: 50%;
+          position: absolute;
+          bottom: -11px;
+          right: -11px;
+        }
+      }
+    }
+  }
+
+  .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    .hero-about {
+      max-width: 25rem;
+    }
+    .hero-skills {
+      display: flex;
+      flex-direction: column;
+      width: 16rem;
+
+      .skill-category {
+        display: flex;
+        justify-content: space-between;
+
+        p:nth-of-type(2) {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .hero-time-and-scroll {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    .hero-time {
+      text-align: right;
+    }
+    .hero-scroll {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+
+      div {
+        background: $primary;
+        width: 0.75rem;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+
+        animation-name: fade;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+
+        &:nth-of-type(1) {
+          animation-delay: -3s;
+        }
+        &:nth-of-type(2) {
+          animation-delay: -2.75s;
+        }
+        &:nth-of-type(3) {
+          animation-delay: -2.5s;
+        }
+        &:nth-of-type(4) {
+          animation-delay: -2.25s;
+        }
+        &:nth-of-type(5) {
+          animation-delay: -2s;
+        }
+        &:nth-of-type(6) {
+          animation-delay: -1.75s;
+        }
+
+        @keyframes fade {
+          0% {opacity: 0.2; transform: scale(0.75);}
+          40% {opacity: 1; transform: scale(1);}
+          60% {opacity: 1; transform: scale(1);}
+          100% {opacity: 0.2; transform: scale(0.75);}
+        }
+
+        transition: ease-in-out 0.2s;
+        &:hover {
+          background: black;
+        }
+      }
+    }
+  }
+}
+
+.work {
+  height: 100vh;
+  background: $bg-secondary;
+  background-size: 32px 32px;
+  background-position: -16px -16px;
+  background-image: linear-gradient(to right, transparentize($primary, 0.9) 1px, transparent 1px), linear-gradient(to bottom, transparentize($primary, 0.9) 1px, transparent 1px);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .title {
+    font-size: 8rem;
+    white-space: nowrap;
+    display: block;
+    display: flex;
+    position: relative;
+
+    .title-group {
+      display: block;
+      animation: scroll 50s infinite linear;
+      padding-left: 0.2em;
+
+      @keyframes scroll {
+        0% {transform: translateX(100%);}
+        100% {transform: translateX(-100%);}
+      }
+    }
+  }
+
+  .projects {
+    #background {
+      display: block;
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+
+      &:not(:disabled):hover {
+        cursor: pointer;
+      }
+      &:disabled {
+        pointer-events: none;
+      }
+    }
+  }
+
+  .project {
+    border: 4px solid $primary;
+    border-radius: 1rem;
+    background: $bg;
+    position: absolute;
+    inset: 5vw 10vw;
+    overflow: hidden;
+
+    $project-transition: 0.5s ease;
+
+    &:not(.closed) {
+      z-index: 2;
+    }
+    &.closed {
+      animation-name: lowerZ;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+
+      @keyframes lowerZ {
+        0% {z-index: 2}
+        99% {z-index: 2}
+        100% {z-index: 1}
+      }
+
+      &#project1 {
+        width: 20rem;
+        height: 45vh;
+        top: 5vw;
+        left: 10vw;
+      }
+      &#project2 {
+        width: 30rem;
+        height: 30vh;
+        top: 5vw;
+        left: initial;
+        right: 10vw; 
+      }
+      &#project3 {
+        width: 35rem;
+        height: 30vh;
+        top: initial;
+        bottom: 5vw;
+        left: 40vw;
+      }
+
+
+      .project-content {
+        overflow: hidden;
+        padding: 2rem;
+
+        h3 {
+          font-size: 3rem;
+          margin-bottom: -3rem;
+        }
+
+        .tags {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        .images {
+          pointer-events: none;
+          .wrapper {
+            right: 15rem;
+          }
+          img {
+            max-height: 200px;
+          }
+          margin-bottom: -1rem;
+        }
+        .text p {
+          max-width: 20rem;
+          font-size: 0.9rem;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .project-top-bar {
+      background: $primary;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding-left: 10px;
+
+      button {
+        width: 12px;
+        height: 12px;
+        background: white;
+        border: none;
+        border-radius: 50%;
+
+        transition: 0.2s ease-in-out;
+        &:hover {
+          cursor: pointer;
+
+          &:nth-of-type(1) {
+            background: #F87171;
+          }
+          &:nth-of-type(2) {
+            background: #FACC15;
+          }
+          &:nth-of-type(3) {
+            background: #4ADE80;
+          }
+        }
+      }
+    }
+
+    .project-content {
+      padding: 4rem 4rem 6rem 4rem;
+      height: 100%;
+      overflow-y: scroll;
+      transition: $project-transition;
+      isolation: isolate;
+      position: relative;
+
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+
+      h3 {
+        font-size: 7rem;
+        transition: $project-transition;
+      }
+      .tags {
+        display: flex;
+        gap: 0.75rem;
+        white-space: nowrap;
+        transition: $project-transition;
+        width: fit-content;
+        transform-origin: bottom left;
+
+        span {
+          border: 2px solid $primary;
+          border-radius: 5rem;
+          padding: 0.25em 0.75em;
+        }
+      }
+      .images {
+        margin-top: 2rem;
+        padding-bottom: 0.5rem;
+
+        .wrapper {
+          display: flex;
+          gap: 2rem;
+          position: relative;
+          right: 0;
+          transition: right $project-transition;
+          z-index: 0;
+        }
+        img {
+          border-radius: 0.5rem;
+          transition: $project-transition;
+          max-height: 400px;
+          aspect-ratio: 3/2;
+          object-fit: cover;
+          border: 2px solid $secondary;
+        }
+
+        &::-webkit-scrollbar {
+          height: 8px;
+        }
+        &::-webkit-scrollbar-track {
+          background: $bg-secondary;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: transparentize($primary, 0.5);
+
+          &:hover {
+            background: transparentize($primary, 0.25);
+          }
+        }
+      }
+      .text {
+        margin-top: 2rem;
+        p {
+          max-width: 60ch;
+          transition: $project-transition;
+
+          a {
+            color: $primary;
+            text-decoration: underline solid $secondary;
+
+            &:hover {
+              text-decoration: underline solid $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.contact {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-size: 16.73vw;
+  }
+
+  .contact-content {
+    margin-top: 4rem;
+    display: flex;
+    gap: 6em;
+
+    .content-left .content-category {
+      display: flex;
+      justify-content: space-between;
+      width: 16rem;
+
+      &:not(:last-of-type) {
+        margin-bottom: 1rem;
+      }
+
+      p {
+        max-width: 11rem;
+        &:nth-of-type(2) {
+          text-align: right;
+        }
+      }
+
+      a {
+        color: inherit;
+        text-decoration: underline solid transparentize($secondary, 0.8);
+
+        transition: 0.2s ease;
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+
+    .contact-form {
+      flex: 1;
+
+      .group {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 1rem;
+
+        .field {
+          flex: 1;
+        }
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 0.5em;
+        }
+        
+        input, textarea {
+          font: inherit;
+          border: 2px solid $primary;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          resize: none;
+
+          &:focus {
+            background: $bg-secondary;
+            outline: none;
+          }
+        }
+        textarea {
+          min-height: 5em;
+        }
+
+        &:has(textarea) {
+          margin-bottom: 1rem;
+        }
+      }
+
+      input[type="submit"] {
+        background: $primary;
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+        font: inherit;
+        font-family: "neue-haas-grotesk-text", sans-serif;
+        font-weight: 400;
+        padding: 0.25em 1em;
+
+        transition: 0.2s ease;
+
+        &:hover {
+          background: $secondary;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
