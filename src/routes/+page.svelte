@@ -217,20 +217,15 @@
         </div>
       </div>
     </div>
-    <div class="images">
-      <!-- Project 1 - Morado -->
-      <img class="project-1" src="/project-screenshots/morado-1.png" alt="project screenshot" style="grid-column: span 2;"/>
-      <img class="project-1" src="/project-screenshots/morado-2.png" alt="project screenshot" style="grid-row: span 2;"/>
-      <img class="project-1" src="/project-screenshots/morado-3.png" alt="project screenshot" style="grid-column: span 2;"/>
-      <!-- Project 2 - Design Space -->
-      <img class="project-2" src="/project-screenshots/designspace-1.png" alt="project screenshot" style="grid-row: span 2;"/>
-      <img class="project-2" src="/project-screenshots/designspace-2.png" alt="project screenshot" style="grid-column: span 2;"/>
-      <img class="project-2" src="/project-screenshots/designspace-3.png" alt="project screenshot"/>
-      <img class="project-2" src="/project-screenshots/designspace-1.png" alt="project screenshot"/>
-      <!-- Project 3 - Habitual -->
-      <img class="project-3" src="/project-screenshots/habitual-1.png" alt="project screenshot" style="grid-column: span 3;"/>
-      <img class="project-3" src="/project-screenshots/habitual-2.png" alt="project screenshot"/>
-      <img class="project-3" src="/project-screenshots/habitual-3.png" alt="project screenshot" style="grid-column: span 2;"/>
+    <div class="showcase">
+      <img class="display" src="/assets/pro-display-xdr.png"/>
+      <div class="screen">
+        <div class="images">
+          <img src="/project-screenshots/morado-1.png" alt="project screenshot"/>
+          <img src="/project-screenshots/designspace-1.png" alt="project screenshot"/>
+          <img src="/project-screenshots/habitual-2.png" alt="project screenshot"/>
+        </div>
+      </div>
     </div>
   </section>
 

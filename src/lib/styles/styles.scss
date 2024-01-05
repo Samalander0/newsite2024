@@ -253,21 +253,16 @@ nav {
 }
 
 .work {
-  height: max(80vh, 50rem);
-  background: $bg-secondary;
-  background-size: 32px 32px;
-  background-position: -16px -16px;
-  background-image: linear-gradient(to right, transparentize($primary, 0.9) 1px, transparent 1px), linear-gradient(to bottom, transparentize($primary, 0.9) 1px, transparent 1px);
-  
-  padding: 0 $app-x-padding;
+  height: 100vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  $image-column-width: 14vw;
 
   .selector {
-    width: 20rem;
+    padding: 0 calc($app-x-padding + 5vw) 0 $app-x-padding;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     h2 {
       font-size: 5.5rem;
@@ -276,6 +271,7 @@ nav {
     .projects {
       position: relative;
       padding-bottom: 1rem;
+      max-width: 20rem;
 
       a {
         color: inherit;
@@ -369,49 +365,59 @@ nav {
       }
     } 
   }
-  .images {
-    height: max(80vh, 50rem);
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: repeat(3, $image-column-width);
-    grid-template-rows: repeat(6, $image-column-width);
-    gap: 2rem;
-    padding-top: calc(50vh - calc($image-column-width + 1rem));
+  .showcase {
+    flex: 1;
+    background: $bg-secondary;
+    background-size: 32px 32px;
+    background-position: -16px -16px;
+    background-image: linear-gradient(to right, transparentize($primary, 0.9) 1px, transparent 1px), linear-gradient(to bottom, transparentize($primary, 0.9) 1px, transparent 1px);
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      transition: transform 0.5s ease, opacity 0.5s ease-out, filter 0.5s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 $app-x-padding;
+    position: relative;
+
+    .display {
+      max-width: calc(100% - $app-x-padding * 2);
+      position: absolute;
+      z-index: 2;
+    }
+    .screen {
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      margin-top: -16.75%;
+
+      .images {
+        transition: 0.5s ease;
+        img {
+          max-width: 100%;
+          aspect-ratio: 16/9;
+          object-fit: cover;
+
+          margin: 0;
+        }
+      }
     }
   }
-  &:has(.projects > a:nth-of-type(1):hover) .images img:not(.project-1) {
-    opacity: 0.75;
-    filter: blur(2px);
+  &:has(.projects a:nth-of-type(1):hover) .screen .images {
+    transform: translateY(0);
   }
-  &:has(.projects > a:nth-of-type(2):hover) {
-    .images img {
-      transform: translateY(calc(calc($image-column-width * -2) - 4rem));
-    }
-    .images img:not(.project-2) {
-      opacity: 0.75;
-      filter: blur(2px);
-    }
+  &:has(.projects a:nth-of-type(2):hover) .screen .images {
+    transform: translateY(calc(-100% / 3));
   }
-  &:has(.projects > a:nth-of-type(3):hover) {
-    .images img {
-      transform: translateY(calc(calc($image-column-width * -4) - 8rem));
-    }
-    .images img:not(.project-3) {
-      opacity: 0.75;
-      filter: blur(2px);
-    }
+  &:has(.projects a:nth-of-type(3):hover) .screen .images {
+    transform: translateY(calc(-200% / 3));
   }
 }
 
 .contact {
-  height: max(80vh, 50rem);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -478,7 +484,7 @@ nav {
           border: 2px solid $primary;
           padding: 0.5rem;
           resize: none;
-          border-radius: 8px;
+          border-radius: 4px;
 
           &:focus {
             background: $bg-secondary;
