@@ -152,7 +152,7 @@
   <div class="hero-bottom">
     <div class="hero-about">
       <p>
-        Hey there! <strong>I'm Sam</strong>, and I create web <strong>experiences</strong> and tell <strong>stories</strong> using <strong>digital design</strong> and <strong>web development</strong>.
+        Hey there, <strong>I'm Sam</strong>! I tell <strong>stories</strong> and create web <strong>experiences</strong> using <strong>digital design</strong> and <strong>web development</strong>.
       </p>
       <br/>
       <p>
@@ -196,120 +196,47 @@
 
 <main>
   <section class="work">
-    <h2 class="title">
-      <span class="title-group">
-        <span>My Work</span>
-        <img src="/assets/star.svg" alt="star"/>
-        <span>My Work</span>
-        <img src="/assets/star.svg" alt="star"/>
-      </span>
-      <span class="title-group">
-        <span>My Work</span>
-        <img src="/assets/star.svg" alt="star"/>
-        <span>My Work</span>
-        <img src="/assets/star.svg" alt="star"/>
-      </span>
-      <span class="title-group">
-        <span>My Work</span>
-        <img src="/assets/star.svg" alt="star"/>
-        <span>My Work</span>
-        <img src="/assets/star.svg" alt="star"/>
-      </span>
-      <span class="title-group">
-        <span>My Work</span>
-        <img src="/assets/star.svg" alt="star"/>
-        <span>My Work</span>
-        <img src="/assets/star.svg" alt="star"/>
-      </span>
-    </h2>
-    <div class="projects">
-      <button id="background" disabled={allProjectsClosed} on:click={closeAllProjects}></button>
-      <div id="project1" class="project closed" on:click={() => {toggleProject(project1, true)}} bind:this={project1.element}>
-        <div class="project-top-bar">
-          <button on:click={() => {toggleProject(project1, false)}}></button>
-          <button on:click={() => {toggleProject(project1, false)}}></button>
-          <button on:click={() => {toggleProject(project1, true)}}></button>
-        </div>
-        <div class="project-content">
-          <h3>Habitual</h3>
-          <div class="tags">
-            <span>Web Design</span>
-            <span>Web Development</span>
-          </div>
-          <div class="images" bind:this={project1.imageSlider.container}>
-            <div class="wrapper" bind:this={project1.imageSlider.element}>
-              <img src="/project-screenshots/habitual-1.png"/>
-              <img src="/project-screenshots/habitual-2.png"/>
-              <img src="/project-screenshots/habitual-3.png"/>
-            </div>
-          </div>
-          <div class="text">
-            <p>
-              <a href="https://www.habitual.studio/" target="_blank">Habitual</a> is a design, development, and marketing agency that I got the chance to create a website for in Fall 2023. They wanted to establish a strong brand presence and bring a sense of authenticity and uniqueness to their agency.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div id="project2" class="project closed" on:click={() => {toggleProject(project2, true)}} bind:this={project2.element}>
-        <div class="project-top-bar">
-          <button on:click={() => {toggleProject(project2, false)}}></button>
-          <button on:click={() => {toggleProject(project2, false)}}></button>
-          <button on:click={() => {toggleProject(project2, true)}}></button>
-        </div>
-        <div class="project-content">
-          <h3>Design Space</h3>
-          <div class="tags">
-            <span>Web Design</span>
-            <span>Web Development</span>
-            <span>Artificial Intelligence</span>
-          </div>
-          <div class="images" bind:this={project2.imageSlider.container}>
-            <div class="wrapper" bind:this={project2.imageSlider.element}>
-              <img src="/project-screenshots/designspace-1.png"/>
-              <img src="/project-screenshots/designspace-2.png"/>
-              <img src="/project-screenshots/designspace-3.png"/>
-            </div>
-          </div>
-          <div class="text">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div id="project3" class="project closed" on:click={() => {toggleProject(project3, true)}} bind:this={project3.element}>
-        <div class="project-top-bar">
-          <button on:click={() => {toggleProject(project3, false)}}></button>
-          <button on:click={() => {toggleProject(project3, false)}}></button>
-          <button on:click={() => {toggleProject(project3, true)}}></button>
-        </div>
-        <div class="project-content">
+    <div class="selector">
+      <h2>My Work</h2>
+      <div class="projects">
+        <a class="project" href="//mora.do" target="_blank">
           <h3>Morado Development</h3>
-          <div class="tags">
-            <span>Web Design</span>
-            <span>Web Development</span>
-          </div>
-          <div class="images" bind:this={project3.imageSlider.container}>
-            <div class="wrapper" bind:this={project3.imageSlider.element}>
-              <img src="/project-screenshots/morado-1.png"/>
-              <img src="/project-screenshots/morado-2.png"/>
-              <img src="/project-screenshots/morado-3.png"/>
-              <img src="/project-screenshots/morado-4.png"/>
-            </div>
-          </div>
-          <div class="text">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
+          <p>Website created for Morado Development, a web development agency in Fall of 2023.</p>
+        </a>
+        <a class="project" href="//designspace.vercel.app" target="_blank">
+          <h3>Design Space</h3>
+          <p>Artificial intelligence design thinking web app created in Winter of 2023.</p>
+        </a>
+        <a class="project" href="//habitual.studio" target="_blank">
+          <h3>Habitual Studio</h3>
+          <p>Website for Habitual Studio, a digital agency. Created in Fall of 2023.</p>
+        </a>
+        <div class="selection-box">
+          <div class="top-dots"></div>
+          <div class="bottom-dots"></div>
         </div>
       </div>
+    </div>
+    <div class="images">
+      <!-- Project 1 - Morado -->
+      <img class="project-1" src="/project-screenshots/morado-1.png" alt="project screenshot" style="grid-column: span 2;"/>
+      <img class="project-1" src="/project-screenshots/morado-2.png" alt="project screenshot" style="grid-row: span 2;"/>
+      <img class="project-1" src="/project-screenshots/morado-3.png" alt="project screenshot" style="grid-column: span 2;"/>
+      <!-- Project 2 - Design Space -->
+      <img class="project-2" src="/project-screenshots/designspace-1.png" alt="project screenshot" style="grid-row: span 2;"/>
+      <img class="project-2" src="/project-screenshots/designspace-2.png" alt="project screenshot" style="grid-column: span 2;"/>
+      <img class="project-2" src="/project-screenshots/designspace-3.png" alt="project screenshot"/>
+      <img class="project-2" src="/project-screenshots/designspace-1.png" alt="project screenshot"/>
+      <!-- Project 3 - Habitual -->
+      <img class="project-3" src="/project-screenshots/habitual-1.png" alt="project screenshot" style="grid-column: span 3;"/>
+      <img class="project-3" src="/project-screenshots/habitual-2.png" alt="project screenshot"/>
+      <img class="project-3" src="/project-screenshots/habitual-3.png" alt="project screenshot" style="grid-column: span 2;"/>
     </div>
   </section>
 
   <section class="contact">
     <div class="wrapper">
-      <h2>Say Hello</h2>
+      <h2>Let's Work Together</h2>
       <div class="contact-content">
         <div class="content-left">
           <div class="content-category">

@@ -175,7 +175,7 @@ nav {
     justify-content: space-between;
 
     .hero-about {
-      max-width: 25rem;
+      max-width: 20rem;
     }
     .hero-skills {
       display: flex;
@@ -253,260 +253,172 @@ nav {
 }
 
 .work {
-  height: 100vh;
+  height: max(80vh, 50rem);
   background: $bg-secondary;
   background-size: 32px 32px;
   background-position: -16px -16px;
   background-image: linear-gradient(to right, transparentize($primary, 0.9) 1px, transparent 1px), linear-gradient(to bottom, transparentize($primary, 0.9) 1px, transparent 1px);
-  overflow: hidden;
-
+  
+  padding: 0 $app-x-padding;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  position: relative;
 
-  .title {
-    font-size: 8rem;
-    white-space: nowrap;
-    display: block;
-    display: flex;
-    position: relative;
+  $image-column-width: 14vw;
 
-    .title-group {
-      display: block;
-      animation: scroll 50s infinite linear;
-      padding-left: 0.2em;
+  .selector {
+    width: 20rem;
 
-      @keyframes scroll {
-        0% {transform: translateX(100%);}
-        100% {transform: translateX(-100%);}
-      }
+    h2 {
+      font-size: 5.5rem;
+      margin-bottom: 2rem;
     }
-  }
+    .projects {
+      position: relative;
+      padding-bottom: 1rem;
 
-  .projects {
-    #background {
-      display: block;
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-
-      &:not(:disabled):hover {
-        cursor: pointer;
-      }
-      &:disabled {
-        pointer-events: none;
-      }
-    }
-  }
-
-  .project {
-    border: 4px solid $primary;
-    border-radius: 1rem;
-    background: $bg;
-    position: absolute;
-    inset: 5vw 10vw;
-    overflow: hidden;
-
-    $project-transition: 0.5s ease;
-
-    &:not(.closed) {
-      z-index: 2;
-    }
-    &.closed {
-      animation-name: lowerZ;
-      animation-duration: 0.5s;
-      animation-fill-mode: forwards;
-
-      @keyframes lowerZ {
-        0% {z-index: 2}
-        99% {z-index: 2}
-        100% {z-index: 1}
-      }
-
-      &#project1 {
-        width: 20rem;
-        height: 45vh;
-        top: 5vw;
-        left: 10vw;
-      }
-      &#project2 {
-        width: 30rem;
-        height: 30vh;
-        top: 5vw;
-        left: initial;
-        right: 10vw; 
-      }
-      &#project3 {
-        width: 35rem;
-        height: 30vh;
-        top: initial;
-        bottom: 5vw;
-        left: 40vw;
-      }
-
-
-      .project-content {
-        overflow: hidden;
-        padding: 2rem;
+      a {
+        color: inherit;
+        text-decoration: none;
+        display: block;
 
         h3 {
-          font-size: 3rem;
-          margin-bottom: -3rem;
+          margin-bottom: 0.25rem;
         }
 
-        .tags {
-          transform: scale(0.5);
-          opacity: 0;
+        &:not(:first-of-type) {
+          padding-top: 1rem;
         }
-        .images {
-          pointer-events: none;
-          .wrapper {
-            right: 15rem;
-          }
-          img {
-            max-height: 200px;
-          }
-          margin-bottom: -1rem;
-        }
-        .text p {
-          max-width: 20rem;
-          font-size: 0.9rem;
+        &:not(:last-of-type) {
+          padding-bottom: 1rem;
         }
       }
 
-      &:hover {
-        cursor: pointer;
-      }
-    }
+      $box-height: 75px;
+      .selection-box {
+        position: absolute;
+        top: -1rem;
+        left: -1rem;
+        width: 22rem;
+        height: calc($box-height + 2rem);
+        outline: 1px solid $primary;
+        border: 1px solid $primary;
+        pointer-events: none;
+        transition: top 0.2s;
 
-    .project-top-bar {
-      background: $primary;
-      height: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      padding-left: 10px;
-
-      button {
-        width: 12px;
-        height: 12px;
-        background: white;
-        border: none;
-        border-radius: 50%;
-
-        transition: 0.2s ease-in-out;
-        &:hover {
-          cursor: pointer;
-
-          &:nth-of-type(1) {
-            background: #F87171;
+        .top-dots {
+          &:before {
+            content: "";
+            width: 6px;
+            aspect-ratio: 1/1;
+            background: $bg-secondary;
+            border: 2px solid $primary;
+            border-radius: 50%;
+            position: absolute;
+            top: -6px;
+            left: -6px;
           }
-          &:nth-of-type(2) {
-            background: #FACC15;
+          &:after {
+            content: "";
+            width: 6px;
+            aspect-ratio: 1/1;
+            background: $bg-secondary;
+            border: 2px solid $primary;
+            border-radius: 50%;
+            position: absolute;
+            top: -6px;
+            right: -6px;
           }
-          &:nth-of-type(3) {
-            background: #4ADE80;
+        }
+        .bottom-dots {
+          &:before {
+            content: "";
+            width: 6px;
+            aspect-ratio: 1/1;
+            background: $bg-secondary;
+            border: 2px solid $primary;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -6px;
+            left: -6px;
+          }
+          &:after {
+            content: "";
+            width: 6px;
+            aspect-ratio: 1/1;
+            background: $bg-secondary;
+            border: 2px solid $primary;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -6px;
+            right: -6px;
           }
         }
       }
-    }
+      &:not(:has(a:hover)) .selection-box {
+        opacity: 0;
+      }
+      &:has(a:nth-of-type(1):hover) .selection-box {
+        top: -1rem;
+      }
+      &:has(a:nth-of-type(2):hover) .selection-box {
+        top: calc(calc($box-height + 2rem) - 1rem);
+      }
+      &:has(a:nth-of-type(3):hover) .selection-box {
+        top: calc(calc(calc($box-height + 2rem) * 2) - 1rem);
+      }
+    } 
+  }
+  .images {
+    height: max(80vh, 50rem);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, $image-column-width);
+    grid-template-rows: repeat(6, $image-column-width);
+    gap: 2rem;
+    padding-top: calc(50vh - calc($image-column-width + 1rem));
 
-    .project-content {
-      padding: 4rem 4rem 6rem 4rem;
+    img {
+      width: 100%;
       height: 100%;
-      overflow-y: scroll;
-      transition: $project-transition;
-      isolation: isolate;
-      position: relative;
-
-      &::-webkit-scrollbar {
-        width: 0px;
-      }
-
-      h3 {
-        font-size: 7rem;
-        transition: $project-transition;
-      }
-      .tags {
-        display: flex;
-        gap: 0.75rem;
-        white-space: nowrap;
-        transition: $project-transition;
-        width: fit-content;
-        transform-origin: bottom left;
-
-        span {
-          border: 2px solid $primary;
-          border-radius: 5rem;
-          padding: 0.25em 0.75em;
-        }
-      }
-      .images {
-        margin-top: 2rem;
-        padding-bottom: 0.5rem;
-
-        .wrapper {
-          display: flex;
-          gap: 2rem;
-          position: relative;
-          right: 0;
-          transition: right $project-transition;
-          z-index: 0;
-        }
-        img {
-          border-radius: 0.5rem;
-          transition: $project-transition;
-          max-height: 400px;
-          aspect-ratio: 3/2;
-          object-fit: cover;
-          border: 2px solid $secondary;
-        }
-
-        &::-webkit-scrollbar {
-          height: 8px;
-        }
-        &::-webkit-scrollbar-track {
-          background: $bg-secondary;
-        }
-        &::-webkit-scrollbar-thumb {
-          background: transparentize($primary, 0.5);
-
-          &:hover {
-            background: transparentize($primary, 0.25);
-          }
-        }
-      }
-      .text {
-        margin-top: 2rem;
-        p {
-          max-width: 60ch;
-          transition: $project-transition;
-
-          a {
-            color: $primary;
-            text-decoration: underline solid $secondary;
-
-            &:hover {
-              text-decoration: underline solid $primary;
-            }
-          }
-        }
-      }
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.5s ease, opacity 0.5s ease-out, filter 0.5s ease-out;
+    }
+  }
+  &:has(.projects > a:nth-of-type(1):hover) .images img:not(.project-1) {
+    opacity: 0.75;
+    filter: blur(2px);
+  }
+  &:has(.projects > a:nth-of-type(2):hover) {
+    .images img {
+      transform: translateY(calc(calc($image-column-width * -2) - 4rem));
+    }
+    .images img:not(.project-2) {
+      opacity: 0.75;
+      filter: blur(2px);
+    }
+  }
+  &:has(.projects > a:nth-of-type(3):hover) {
+    .images img {
+      transform: translateY(calc(calc($image-column-width * -4) - 8rem));
+    }
+    .images img:not(.project-3) {
+      opacity: 0.75;
+      filter: blur(2px);
     }
   }
 }
 
 .contact {
-  height: 100vh;
+  height: max(80vh, 50rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   h2 {
-    font-size: 16.73vw;
+    font-size: 8rem;
   }
 
   .contact-content {
@@ -517,7 +429,7 @@ nav {
     .content-left .content-category {
       display: flex;
       justify-content: space-between;
-      width: 16rem;
+      width: 18rem;
 
       &:not(:last-of-type) {
         margin-bottom: 1rem;
@@ -565,8 +477,8 @@ nav {
           font: inherit;
           border: 2px solid $primary;
           padding: 0.5rem;
-          border-radius: 0.5rem;
           resize: none;
+          border-radius: 8px;
 
           &:focus {
             background: $bg-secondary;
@@ -586,11 +498,11 @@ nav {
         background: $primary;
         color: white;
         border: none;
-        border-radius: 0.25rem;
+        border-radius: 8px;
         font: inherit;
         font-family: "neue-haas-grotesk-text", sans-serif;
         font-weight: 400;
-        padding: 0.25em 1em;
+        padding: 0.5em 1em;
 
         transition: 0.2s ease;
 
