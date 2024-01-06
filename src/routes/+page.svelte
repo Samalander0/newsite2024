@@ -294,7 +294,7 @@
     <a href="mailto:sam@samalander.dev" target="_blank">sam@samalander.dev</a>
   </div>
   <div class="footer-right">
-    <a href="//github.com/Samalander0" target="_blank">Source code for this site</a>
+    <a href="https://github.com/Samalander0/newsite2024" target="_blank">Source code for this site</a>
     <div class="footer-socials">
       <a href="https://github.com/samalander0" target="_blank">
         <img src="/assets/github-white.svg" alt="github"/>
