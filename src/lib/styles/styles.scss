@@ -46,8 +46,11 @@ h1,h2,h3 {
 
 // Main Styles
 nav {
-  position: fixed;
+  position: absolute;
   top: 4rem;
+  @media (max-width: 800px) {
+    top: 2rem;
+  }
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,6 +58,13 @@ nav {
   width: 100%;
   padding: 0.5rem $app-x-padding;
   z-index: 999;
+
+  opacity: 0;
+  animation-name: fade-down;
+  animation-duration: 1.5s;
+  animation-delay: 3s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
 
   h2 {
     font-weight: 600;
@@ -66,16 +76,23 @@ nav {
     gap: 0.5rem;
 
     a {
-      background: black;
+      background: $primary;
       border-radius: 50%;
       width: 1.75rem;
       height: 1.75rem;
       display: flex;
       justify-content: center;
       align-items: center;
+      @media (max-width: 800px) {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
 
       img {
         max-width: 1rem;
+        @media (max-width: 800px) {
+          max-width: 0.75rem;
+        }
       }
 
       transition: 0.2s ease;
@@ -97,10 +114,23 @@ nav {
   }
 }
 
+@keyframes fade-down {
+  from {opacity: 0; transform: translateY(-5rem)}
+  to {opacity: 1; transform: translateY(0)}
+}
+@keyframes fade-up {
+  from {opacity: 0; transform: translateY(5rem)}
+  to {opacity: 1; transform: translateY(0)}
+}
+
 .hero {
   padding: 8.5rem $app-x-padding 4rem $app-x-padding;
   height: 100vh;
   height: 100svh;
+
+  @media (max-width: 800px) {
+    padding: 5.5rem $app-x-padding 2rem $app-x-padding;
+  }
 
   display: flex;
   flex-direction: column;
@@ -111,6 +141,20 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.2em;
+    position: relative;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 16.5vw;
+    }
+
+    opacity: 0;
+    animation-name: fade-down;
+    animation-duration: 2s;
+    animation-delay: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
 
     .typing::after {
       height: 1.2em !important;
@@ -120,6 +164,7 @@ nav {
       outline: 4px solid $primary;
       padding: 0.1em 0.2em 0.1em 0.1em;
       position: relative;
+      min-height: 1.415em;
 
       &:before {
         content: "";
@@ -173,14 +218,34 @@ nav {
   .hero-bottom {
     display: flex;
     justify-content: space-between;
+    z-index: -1;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+      gap: 2vh;
+    }
+    @media (max-height: 680px) {
+      font-size: 0.9rem;
+    }
 
     .hero-about {
-      max-width: 20rem;
+      @media (min-width: 799px) {
+        max-width: 20rem;
+      }
+
+      opacity: 0;
+      animation-name: fade-up;
+      animation-duration: 1.5s;
+      animation-delay: 1.5s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
     }
     .hero-skills {
       display: flex;
       flex-direction: column;
-      width: 16rem;
+      @media (min-width: 799px) {
+        width: 16rem;
+      }
 
       .skill-category {
         display: flex;
@@ -190,6 +255,13 @@ nav {
           text-align: right;
         }
       }
+
+      opacity: 0;
+      animation-name: fade-up;
+      animation-duration: 1.5s;
+      animation-delay: 2s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
     }
   }
 
@@ -198,6 +270,18 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+
+    opacity: 0;
+    animation-name: fade-up;
+    animation-duration: 1.5s;
+    animation-delay: 2.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+
+    @media (max-width: 1100px) {
+      display: none;
+    }
+
     .hero-time {
       text-align: right;
     }
@@ -253,8 +337,11 @@ nav {
 }
 
 .work {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
+  background: $bg;
+
+  $box-height: 75px;
 
   .selector {
     padding: 0 calc($app-x-padding + 5vw) 0 $app-x-padding;
@@ -290,7 +377,6 @@ nav {
         }
       }
 
-      $box-height: 75px;
       .selection-box {
         position: absolute;
         top: -1rem;
@@ -300,14 +386,14 @@ nav {
         outline: 1px solid $primary;
         border: 1px solid $primary;
         pointer-events: none;
-        transition: top 0.2s;
+        transition: top 0.2s, opacity 0.25s ease;
 
         .top-dots {
           &:before {
             content: "";
             width: 6px;
             aspect-ratio: 1/1;
-            background: $bg-secondary;
+            background: $bg;
             border: 2px solid $primary;
             border-radius: 50%;
             position: absolute;
@@ -318,7 +404,7 @@ nav {
             content: "";
             width: 6px;
             aspect-ratio: 1/1;
-            background: $bg-secondary;
+            background: $bg;
             border: 2px solid $primary;
             border-radius: 50%;
             position: absolute;
@@ -331,7 +417,7 @@ nav {
             content: "";
             width: 6px;
             aspect-ratio: 1/1;
-            background: $bg-secondary;
+            background: $bg;
             border: 2px solid $primary;
             border-radius: 50%;
             position: absolute;
@@ -342,7 +428,7 @@ nav {
             content: "";
             width: 6px;
             aspect-ratio: 1/1;
-            background: $bg-secondary;
+            background: $bg;
             border: 2px solid $primary;
             border-radius: 50%;
             position: absolute;
@@ -351,19 +437,22 @@ nav {
           }
         }
       }
-      &:not(:has(a:hover)) .selection-box {
-        opacity: 0;
-      }
-      &:has(a:nth-of-type(1):hover) .selection-box {
-        top: -1rem;
-      }
-      &:has(a:nth-of-type(2):hover) .selection-box {
-        top: calc(calc($box-height + 2rem) - 1rem);
-      }
-      &:has(a:nth-of-type(3):hover) .selection-box {
-        top: calc(calc(calc($box-height + 2rem) * 2) - 1rem);
-      }
     } 
+  }
+  &[data-hovered-project="0"] .selection-box {
+    opacity: 0;
+  }
+  &:not([data-hovered-project="0"]) .projects:not(:hover) .selection-box {
+    opacity: 0.25;
+  }
+  &[data-hovered-project="1"] .projects .selection-box {
+    top: -1rem;
+  }
+  &[data-hovered-project="2"] .projects .selection-box {
+    top: calc(calc($box-height + 2rem) - 1rem);
+  }
+  &[data-hovered-project="3"] .projects .selection-box {
+    top: calc(calc(calc($box-height + 2rem) * 2) - 1rem);
   }
   .showcase {
     flex: 1;
@@ -384,6 +473,7 @@ nav {
       max-width: calc(100% - $app-x-padding * 2);
       position: absolute;
       z-index: 2;
+      pointer-events: none;
     }
     .screen {
       display: flex;
@@ -395,6 +485,149 @@ nav {
 
       .images {
         transition: 0.5s ease;
+
+        .carousel {
+          max-width: 100%;
+          aspect-ratio: 16/9;
+          position: relative;
+
+          .carousel-content {
+            display: flex;
+          
+            img {
+              max-width: 100%;
+              aspect-ratio: 16/9;
+              object-fit: cover;
+
+              margin: 0;
+            }
+
+            transition: 0.5s ease;
+            &[data-slide="1"] {
+              transform: translateX(0);
+            }
+            &[data-slide="2"] {
+              transform: translateX(-100%);
+            }
+            &[data-slide="3"] {
+              transform: translateX(-200%);
+            }
+          }
+          .carousel-indicators {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.25rem;
+
+            button {
+              width: 10px;
+              height: 10px;
+              border-radius: 5rem;
+              padding: 0;
+              border: none;
+              background: lighten($primary, 25%);
+              transition: 0.3s ease-out;
+
+              &.active {
+                width: 20px;
+                background: $primary;
+              }
+              &:not(.active):hover {
+                cursor: pointer;
+                opacity: 0.7;
+              }
+            }
+          }
+          .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: lighten($primary, 25%);
+            border: none;
+            border-radius: 5rem;
+            width: 2rem;
+            height: 2rem;
+            display: grid;
+            place-items: center;
+            opacity: 0;
+
+            img {
+              width: 1rem;
+            }
+
+            &.carousel-previous {
+              left: 1rem;
+            }
+            &.carousel-next {
+              right: 1rem;
+            }
+
+            transition: 0.2s ease;
+            &:hover {
+              background: $primary;
+              cursor: pointer;
+            }
+            &:active {
+              transform: translateY(-50%) scale(0.9);
+            }
+          }
+          &:hover .carousel-control {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  &[data-hovered-project="1"] .screen .images {
+    transform: translateY(0);
+  }
+  &[data-hovered-project="2"] .screen .images {
+    transform: translateY(calc(-100% / 3));
+  }
+  &[data-hovered-project="3"] .screen .images {
+    transform: translateY(calc(-200% / 3));
+  }
+
+  .mobile-projects {
+    padding: 2rem $app-x-padding;
+
+    h2 {
+      font-size: 20vw;
+      margin-bottom: 1rem;
+    }
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .project {
+        .project-info {
+          color: inherit;
+          text-decoration: none;
+          display: block;
+          margin-top: 1rem;
+
+          h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+
+    .carousel {
+      max-width: 100%;
+      aspect-ratio: 16/9;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+
+      .carousel-content {
+        display: flex;
+      
         img {
           max-width: 100%;
           aspect-ratio: 16/9;
@@ -402,40 +635,118 @@ nav {
 
           margin: 0;
         }
+
+        transition: 0.5s ease;
+        &[data-slide="1"] {
+          transform: translateX(0);
+        }
+        &[data-slide="2"] {
+          transform: translateX(-100%);
+        }
+        &[data-slide="3"] {
+          transform: translateX(-200%);
+        }
+      }
+      .carousel-indicators {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.25rem;
+
+        button {
+          width: 10px;
+          height: 10px;
+          border-radius: 5rem;
+          padding: 0;
+          border: none;
+          background: lighten($primary, 25%);
+          transition: 0.3s ease-out;
+
+          &.active {
+            width: 20px;
+            background: $primary;
+          }
+          &:not(.active):hover {
+            cursor: pointer;
+            opacity: 0.7;
+          }
+        }
+      }
+      .carousel-control {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: lighten($primary, 25%);
+        border: none;
+        border-radius: 5rem;
+        width: 2rem;
+        height: 2rem;
+        display: grid;
+        place-items: center;
+        opacity: 0;
+
+        img {
+          width: 1rem;
+        }
+
+        &.carousel-previous {
+          left: 1rem;
+        }
+        &.carousel-next {
+          right: 1rem;
+        }
+
+        transition: 0.2s ease;
+        &:hover {
+          background: $primary;
+          cursor: pointer;
+        }
+        &:active {
+          transform: translateY(-50%) scale(0.9);
+        }
+      }
+      &:hover .carousel-control {
+        opacity: 1;
       }
     }
-  }
-  &:has(.projects a:nth-of-type(1):hover) .screen .images {
-    transform: translateY(0);
-  }
-  &:has(.projects a:nth-of-type(2):hover) .screen .images {
-    transform: translateY(calc(-100% / 3));
-  }
-  &:has(.projects a:nth-of-type(3):hover) .screen .images {
-    transform: translateY(calc(-200% / 3));
   }
 }
 
 .contact {
-  height: 100vh;
+  min-height: calc(100vh - 180px); // Footer is 180px
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding: 2rem $app-x-padding;
 
   h2 {
     font-size: 8rem;
+
+    @media (max-width: 1300px) {
+      font-size: 9.25vw;
+    }
   }
 
   .contact-content {
-    margin-top: 4rem;
+    margin-top: 4vw;
     display: flex;
-    gap: 6em;
+    justify-content: space-between;
+    gap: $app-x-padding;
+
+    @media (max-width: 1150px) {
+      flex-direction: column;
+    }
 
     .content-left .content-category {
       display: flex;
       justify-content: space-between;
-      width: 18rem;
+      width: 20rem;
+
+      @media (max-width: 1150px) {
+        width: 100%;
+      }
 
       &:not(:last-of-type) {
         margin-bottom: 1rem;
@@ -461,14 +772,20 @@ nav {
 
     .contact-form {
       flex: 1;
+      max-width: 50rem;
 
       .group {
         display: flex;
         gap: 2rem;
         margin-bottom: 1rem;
+        max-width: 100%;
 
         .field {
           flex: 1;
+
+          @media (max-width: 600px) {
+            width: 20%;
+          }
         }
       }
       .field {
@@ -509,12 +826,75 @@ nav {
         font-family: "neue-haas-grotesk-text", sans-serif;
         font-weight: 400;
         padding: 0.5em 1em;
+        float: right;
 
         transition: 0.2s ease;
 
         &:hover {
           background: $secondary;
           cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  background: $bg-secondary;
+  background-size: 32px 32px;
+  background-position: -16px -16px;
+  background-image: linear-gradient(to right, transparentize($primary, 0.9) 1px, transparent 1px), linear-gradient(to bottom, transparentize($primary, 0.9) 1px, transparent 1px);
+  padding: 4rem $app-x-padding;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  @media (max-width: 465px) {
+    font-size: 0.9rem;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding-bottom: 0.25rem;
+  }
+  a {
+    color: $secondary;
+    text-decoration: underline solid transparentize($secondary, 0.8);
+
+    transition: 0.2s ease;
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  .footer-right {
+    text-align: right;
+
+    .footer-socials {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-top: 0.5rem;
+  
+      a {
+        background: $primary;
+        border-radius: 50%;
+        width: 1.5rem;
+        height: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        img {
+          max-width: 0.75rem;
+        }
+  
+        transition: 0.2s ease;
+        &:hover {
+          background: $primary;
+          transform: scale(1.1) rotate(10deg);
         }
       }
     }

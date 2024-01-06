@@ -2,6 +2,13 @@
   import "$lib/styles/styles.scss";
   import {onMount} from 'svelte'
   import Typewriter from 'svelte-typewriter'
+  import Carousel from "$lib/components/Carousel.svelte";
+  import Metatags from "$lib/components/Metatags.svelte";
+
+  let windowWidth;
+  onMount(() => {
+    windowWidth = window.innerWidth;
+  })
 
   // Get time for time display
   import dayjs from "dayjs"
@@ -20,102 +27,53 @@
   import { gsap } from "gsap/dist/gsap";
   import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
   import { ScrollSmoother } from "$lib/gsap/src/ScrollSmoother";
-  import { Flip } from "$lib/gsap/src/Flip";
-  import { Draggable } from "$lib/gsap/src/Draggable";
 
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother, Flip, Draggable);
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-  let smoother;
+  let smoother,
+      showcaseElement;
   onMount(() => {
-    if (window.innerWidth >= 900) { // Only use scrollSmoother if on a large enough page
+    if (windowWidth >= 900) { // Only use scrollSmoother if on a large enough page
       smoother = ScrollSmoother.create({
         smooth: 0.5,
         effects: true,
       });
     }
+    if (windowWidth > 1000) {
+      gsap.to(".showcase", {
+        backgroundPosition: "-16px 800px",
+        scrollTrigger: {
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true
+        }
+      })
+      gsap.to(".hero h1", {
+        top: "0.75em",
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      })
+      gsap.to(".hero-bottom", {
+        y: "150%",
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      })
+    }
   });
 
-  // Project Windows
-  let project1 = {open: false, opened: false, element: null, imageSlider: {element: null, container: null}},
-      project2 = {open: false, opened: false, element: null, imageSlider: {element: null, container: null}},
-      project3 = {open: false, opened: false, element: null, imageSlider: {element: null, container: null}};
-  let cooldown = false;
-
-  // Animate opening/closing
-  function cancelCooldown() {cooldown = false}
-
-  function findOpenProject(projects) {
-    for (let i = 0; i < projects.length; i++) {
-      if (projects[i].open) {
-        return projects[i];
-      }
-    }
-  }
-
-  function closeAllProjects() {
-    let project = findOpenProject([project1, project2, project3])
-
-    getProjectsState(project)
-
-    project.element.classList.add("closed");
-    project.open = false;
-
-    animateProjects()
-
-    allProjectsClosed = !(project1.open || project2.open || project3.open);
-  }
-
-  let allProjectsClosed = !(project1.open || project2.open || project3.open);
-
-  function toggleProject(project, value) {
-    if (!cooldown && value) {
-      getProjectsState(project)
-      project.element.classList.remove("closed")
-      project.open = true;
-      animateProjects()
-
-      cooldown = true;
-      setTimeout(cancelCooldown, 1000); // After 1 second, set cooldown to false
-
-      // Create the image slider
-      if (!project.opened) { //need to do this after delay
-        setTimeout(() => {
-          const widthOfImages = project.imageSlider.element.getElementsByTagName('*').length * 632 - 32;
-          const maxScrollDistance = project.imageSlider.container.getBoundingClientRect().width - widthOfImages;
-          Draggable.create(project.imageSlider.element, {
-            type: "x",
-            bounds: {
-              maxX: maxScrollDistance, 
-              minX: 0
-            }
-          })
-        }, 500)
-        project.opened = true
-      }
-    } else if (!cooldown && !value) {
-      getProjectsState(project)
-      project.element.classList.add("closed")
-      project.open = false;
-      animateProjects()
-
-      cooldown = true;
-      setInterval(cancelCooldown, 1000); // After 1 second, set cooldown to false
-    }
-
-    allProjectsClosed = !(project1.open || project2.open || project3.open);
-  }
-
-  let flipState;
-  function getProjectsState(project) {
-    flipState = Flip.getState(project.element);
-  }
-  function animateProjects() {
-    Flip.from(flipState, {
-      duration: 0.5,
-      ease: "power2.out",
-    })
-  }
+  // Work section
+  let hoveredProject = 0;
 </script>
+
+<Metatags/>
 
 <nav>
   <h2>Sam Cheng</h2>
@@ -140,7 +98,7 @@
     Sam is a 
     <span class="selected" style="--cursor-color: #0019FF; --cursor-width: 0.1em;">
       <div class="selected-bottom-dots"></div>
-      <Typewriter mode="loop" interval="150" unwriteInterval="75" wordInterval="2500">
+      <Typewriter mode="loop" interval="150" unwriteInterval="75" wordInterval="2500" delay="1000">
         <span>Designer</span>
         <span>Developer</span>
         <span>Student</span>
@@ -195,38 +153,91 @@
 </header>
 
 <main>
-  <section class="work">
-    <div class="selector">
-      <h2>My Work</h2>
-      <div class="projects">
-        <a class="project" href="//mora.do" target="_blank">
-          <h3>Morado Development</h3>
-          <p>Website created for Morado Development, a web development agency in Fall of 2023.</p>
-        </a>
-        <a class="project" href="//designspace.vercel.app" target="_blank">
-          <h3>Design Space</h3>
-          <p>Artificial intelligence design thinking web app created in Winter of 2023.</p>
-        </a>
-        <a class="project" href="//habitual.studio" target="_blank">
-          <h3>Habitual Studio</h3>
-          <p>Website for Habitual Studio, a digital agency. Created in Fall of 2023.</p>
-        </a>
-        <div class="selection-box">
-          <div class="top-dots"></div>
-          <div class="bottom-dots"></div>
+  <section class="work" data-hovered-project={hoveredProject}>
+    {#if windowWidth < 1000}
+      <div class="mobile-projects">
+        <h2>My Work</h2>
+        <div class="projects">
+          <div class="project">
+            <Carousel>
+              <img src="/project-screenshots/morado-1.png" alt="project screenshot"/>
+              <img src="/project-screenshots/morado-2.png" alt="project screenshot"/>
+              <img src="/project-screenshots/morado-3.png" alt="project screenshot"/>
+            </Carousel>
+            <a class="project-info" href="//mora.do" target="_blank">
+              <h3>Morado Development</h3>
+              <p>Website created for Morado Development, a web agency in Summer of 2023.</p>
+            </a>
+          </div>
+          <div class="project">
+            <Carousel>
+              <img src="/project-screenshots/designspace-1.png" alt="project screenshot"/>
+              <img src="/project-screenshots/designspace-2.png" alt="project screenshot"/>
+              <img src="/project-screenshots/designspace-3.png" alt="project screenshot"/>
+            </Carousel>
+            <a class="project-info" href="//designspace.vercel.app" target="_blank">
+              <h3>Design Space</h3>
+              <p>Artificial intelligence design thinking web app created in Winter of 2023.</p>
+            </a>
+          </div>
+          <div class="project">
+            <Carousel>
+              <img src="/project-screenshots/habitual-2.png" alt="project screenshot"/>
+              <img src="/project-screenshots/habitual-1.png" alt="project screenshot"/>
+              <img src="/project-screenshots/habitual-3.png" alt="project screenshot"/>
+            </Carousel>
+            <a class="project-info" href="//habitual.studio" target="_blank">
+              <h3>Habitual Studio</h3>
+              <p>Website for Habitual Studio, a digital agency. Created in Fall of 2023.</p>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="showcase">
-      <img class="display" src="/assets/pro-display-xdr.png"/>
-      <div class="screen">
-        <div class="images">
-          <img src="/project-screenshots/morado-1.png" alt="project screenshot"/>
-          <img src="/project-screenshots/designspace-1.png" alt="project screenshot"/>
-          <img src="/project-screenshots/habitual-2.png" alt="project screenshot"/>
+    {:else}
+      <div class="selector">
+        <h2>My Work</h2>
+        <div class="projects">
+          <a class="project" href="//mora.do" target="_blank" on:mouseover={() => {hoveredProject = 1}} on:focus={() => {hoveredProject = 1}}>
+            <h3>Morado Development</h3>
+            <p>Website created for Morado Development, a web agency in Summer of 2023.</p>
+          </a>
+          <a class="project" href="//designspace.vercel.app" target="_blank" on:mouseover={() => {hoveredProject = 2}} on:focus={() => {hoveredProject = 2}}>
+            <h3>Design Space</h3>
+            <p>Artificial intelligence design thinking web app created in Winter of 2023.</p>
+          </a>
+          <a class="project" href="//habitual.studio" target="_blank" on:mouseover={() => {hoveredProject = 3}} on:focus={() => {hoveredProject = 3}}>
+            <h3>Habitual Studio</h3>
+            <p>Website for Habitual Studio, a digital agency. Created in Fall of 2023.</p>
+          </a>
+          <div class="selection-box">
+            <div class="top-dots"></div>
+            <div class="bottom-dots"></div>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="showcase">
+        <img class="display" src="/assets/pro-display-xdr.png" alt="apple pro display XDR monitor (decorational)"/>
+        <div class="screen">
+          <div class="images">
+            <Carousel>
+              <img src="/project-screenshots/morado-1.png" alt="project screenshot"/>
+              <img src="/project-screenshots/morado-2.png" alt="project screenshot"/>
+              <img src="/project-screenshots/morado-3.png" alt="project screenshot"/>
+            </Carousel>
+            <Carousel>
+              <img src="/project-screenshots/designspace-1.png" alt="project screenshot"/>
+              <img src="/project-screenshots/designspace-2.png" alt="project screenshot"/>
+              <img src="/project-screenshots/designspace-3.png" alt="project screenshot"/>
+            </Carousel>
+            <Carousel>
+              <img src="/project-screenshots/habitual-2.png" alt="project screenshot"/>
+              <img src="/project-screenshots/habitual-1.png" alt="project screenshot"/>
+              <img src="/project-screenshots/habitual-3.png" alt="project screenshot"/>
+            </Carousel>
+          </div>
+        </div>
+      </div>
+    {/if}
   </section>
 
   <section class="contact">
@@ -276,3 +287,27 @@
     </div>
   </section>
 </main>
+
+<footer class="footer">
+  <div class="footer-left">
+    <h3>Sam Cheng</h3>
+    <a href="mailto:sam@samalander.dev" target="_blank">sam@samalander.dev</a>
+  </div>
+  <div class="footer-right">
+    <a href="//github.com/Samalander0" target="_blank">Source code for this site</a>
+    <div class="footer-socials">
+      <a href="https://github.com/samalander0" target="_blank">
+        <img src="/assets/github-white.svg" alt="github"/>
+      </a>
+      <a href="https://www.linkedin.com/in/samalander/" target="_blank">
+        <img src="/assets/linkedin-white.svg" alt="linkedin"/>
+      </a>
+      <a href="https://twitter.com/samaland3r" target="_blank">
+        <img src="/assets/twitter-white.svg" alt="github"/>
+      </a>
+      <a href="https://discord.com/users/588480933108121618" target="_blank">
+        <img src="/assets/discord-white.svg" alt="discord"/>
+      </a>
+    </div>
+  </div>
+</footer>
