@@ -160,9 +160,9 @@
         <div class="projects">
           <div class="project">
             <Carousel>
-              <img src="/project-screenshots/morado-1.png" alt="project screenshot"/>
-              <img src="/project-screenshots/morado-2.png" alt="project screenshot"/>
-              <img src="/project-screenshots/morado-3.png" alt="project screenshot"/>
+              <img src="/project-screenshots/morado-1.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/morado-2.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/morado-3.webp" alt="project screenshot"/>
             </Carousel>
             <a class="project-info" href="//mora.do" target="_blank">
               <h3>Morado Development</h3>
@@ -171,9 +171,9 @@
           </div>
           <div class="project">
             <Carousel>
-              <img src="/project-screenshots/designspace-1.png" alt="project screenshot"/>
-              <img src="/project-screenshots/designspace-2.png" alt="project screenshot"/>
-              <img src="/project-screenshots/designspace-3.png" alt="project screenshot"/>
+              <img src="/project-screenshots/designspace-1.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/designspace-2.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/designspace-3.webp" alt="project screenshot"/>
             </Carousel>
             <a class="project-info" href="//designspace.vercel.app" target="_blank">
               <h3>Design Space</h3>
@@ -182,9 +182,9 @@
           </div>
           <div class="project">
             <Carousel>
-              <img src="/project-screenshots/habitual-2.png" alt="project screenshot"/>
-              <img src="/project-screenshots/habitual-1.png" alt="project screenshot"/>
-              <img src="/project-screenshots/habitual-3.png" alt="project screenshot"/>
+              <img src="/project-screenshots/habitual-2.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/habitual-1.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/habitual-3.webp" alt="project screenshot"/>
             </Carousel>
             <a class="project-info" href="//habitual.studio" target="_blank">
               <h3>Habitual Studio</h3>
