@@ -98,7 +98,7 @@
     Sam is a 
     <span class="selected" style="--cursor-color: #0019FF; --cursor-width: 0.1em;">
       <div class="selected-bottom-dots"></div>
-      <Typewriter mode="loop" interval="150" unwriteInterval="75" wordInterval="2500" delay="1000">
+      <Typewriter mode="loop" interval="150" unwriteInterval="75" wordInterval="1500" delay="1000">
         <span>Designer</span>
         <span>Developer</span>
         <span>Student</span>
