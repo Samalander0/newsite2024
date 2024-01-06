@@ -220,19 +220,19 @@
         <div class="screen">
           <div class="images">
             <Carousel>
-              <img src="/project-screenshots/morado-1.png" alt="project screenshot"/>
-              <img src="/project-screenshots/morado-2.png" alt="project screenshot"/>
-              <img src="/project-screenshots/morado-3.png" alt="project screenshot"/>
+              <img src="/project-screenshots/morado-1.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/morado-2.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/morado-3.webp" alt="project screenshot"/>
             </Carousel>
             <Carousel>
-              <img src="/project-screenshots/designspace-1.png" alt="project screenshot"/>
-              <img src="/project-screenshots/designspace-2.png" alt="project screenshot"/>
-              <img src="/project-screenshots/designspace-3.png" alt="project screenshot"/>
+              <img src="/project-screenshots/designspace-1.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/designspace-2.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/designspace-3.webp" alt="project screenshot"/>
             </Carousel>
             <Carousel>
-              <img src="/project-screenshots/habitual-2.png" alt="project screenshot"/>
-              <img src="/project-screenshots/habitual-1.png" alt="project screenshot"/>
-              <img src="/project-screenshots/habitual-3.png" alt="project screenshot"/>
+              <img src="/project-screenshots/habitual-1.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/habitual-2.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/habitual-3.webp" alt="project screenshot"/>
             </Carousel>
           </div>
         </div>
