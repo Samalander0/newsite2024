@@ -110,11 +110,11 @@
   <div class="hero-bottom">
     <div class="hero-about">
       <p>
-        Hey there, <strong>I'm Sam</strong>! I tell <strong>stories</strong> and create web <strong>experiences</strong> using <strong>digital design</strong> and <strong>web development</strong>.
+        Hey there, <strong>I'm Sam</strong>! I tell <strong>stories</strong> and craft web <strong>experiences</strong> using <strong>digital design</strong> and <strong>web development</strong>.
       </p>
       <br/>
       <p>
-        Right now, I'm working with clients and agencies to tell meaningful stories online.
+        Right now, I'm working with clients and agencies to create engaging and user-friendly digital presences.
       </p>
     </div>
     <div class="hero-skills">
