@@ -16,6 +16,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@vercel/analytics": "^1.1.1",
 		"dayjs": "^1.11.10",
 		"gsap": "^3.12.4",
 		"sass": "^1.69.5",
