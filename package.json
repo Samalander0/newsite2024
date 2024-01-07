@@ -16,6 +16,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@formatjs/intl-segmenter": "^11.5.3",
 		"@vercel/analytics": "^1.1.1",
 		"dayjs": "^1.11.10",
 		"gsap": "^3.12.4",

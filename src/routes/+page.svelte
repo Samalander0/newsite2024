@@ -71,6 +71,10 @@
 
   // Work section
   let hoveredProject = 0;
+
+  // Fix for firefox typewriter effect
+  import {shouldPolyfill} from '@formatjs/intl-segmenter/should-polyfill'
+  (async function () { if (shouldPolyfill()) { await import('@formatjs/intl-segmenter/polyfill-force') } })()
 </script>
 
 <Metatags/>
