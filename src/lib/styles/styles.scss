@@ -36,7 +36,7 @@ body {
 
 h1,h2,h3 {
   font-family: 'Inter', sans-serif;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.07em;
   font-weight: 500;
 }
 
@@ -67,8 +67,9 @@ nav {
   animation-fill-mode: forwards;
 
   h2 {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.25rem;
+    letter-spacing: -0.04em;
   }
 
   .nav-socials {
@@ -341,15 +342,15 @@ nav {
   display: flex;
   background: $bg;
 
-  $box-height: 75px;
+  $box-height: 98px;
 
   .selector {
-    padding: 0 calc($app-x-padding + 5vw) 0 $app-x-padding;
+    padding: 0 calc($app-x-padding + 1vw) 0 $app-x-padding;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
     h2 {
       font-size: 5.5rem;
@@ -358,7 +359,7 @@ nav {
     .projects {
       position: relative;
       padding-bottom: 1rem;
-      max-width: 20rem;
+      max-width: 22rem;
 
       a {
         color: inherit;
@@ -402,7 +403,7 @@ nav {
         position: absolute;
         top: -1rem;
         left: -1rem;
-        width: 22rem;
+        width: 24rem;
         height: calc($box-height + 2rem);
         outline: 1px solid $primary;
         border: 1px solid $primary;
@@ -487,11 +488,11 @@ nav {
     justify-content: center;
     align-items: center;
 
-    padding: 0 $app-x-padding;
+    padding: 0 calc($app-x-padding * 0.75);
     position: relative;
 
     .display {
-      max-width: calc(100% - $app-x-padding * 2);
+      max-width: calc(100% - $app-x-padding * 1.5);
       position: absolute;
       z-index: 2;
       pointer-events: none;
