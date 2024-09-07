@@ -164,6 +164,17 @@
         <div class="projects">
           <div class="project">
             <Carousel>
+              <img src="/project-screenshots/tome-1.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/tome-2.webp" alt="project screenshot"/>
+              <img src="/project-screenshots/tome-3.webp" alt="project screenshot"/>
+            </Carousel>
+            <a class="project-info" href="//tome.design" target="_blank">
+              <h3>Tome</h3>
+              <p>A collection of collections of design inspiration, built to find exactly what you're looking for.</p>
+            </a>
+          </div>
+          <div class="project">
+            <Carousel>
               <img src="/project-screenshots/morado-1.webp" alt="project screenshot"/>
               <img src="/project-screenshots/morado-2.webp" alt="project screenshot"/>
               <img src="/project-screenshots/morado-3.webp" alt="project screenshot"/>
@@ -182,17 +193,6 @@
             <a class="project-info" href="//designspace.vercel.app" target="_blank">
               <h3>Design Space</h3>
               <p>Artificial intelligence design thinking web app created in Winter of 2023.</p>
-            </a>
-          </div>
-          <div class="project">
-            <Carousel>
-              <img src="/project-screenshots/habitual-2.webp" alt="project screenshot"/>
-              <img src="/project-screenshots/habitual-1.webp" alt="project screenshot"/>
-              <img src="/project-screenshots/habitual-3.webp" alt="project screenshot"/>
-            </Carousel>
-            <a class="project-info" href="//habitual.studio" target="_blank">
-              <h3>Habitual Studio</h3>
-              <p>Website for Habitual Studio, a digital agency. Created in Fall of 2023.</p>
             </a>
           </div>
         </div>

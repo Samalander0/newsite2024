@@ -1,6 +1,6 @@
 <script>
   export let title = 'Sam Cheng';
-  export let description = "Hey, I'm Sam, a digital designer and web developer";
+  export let description = "Sam Cheng is a product and UX designer with experience telling stories and building AI-first products and experiences.";
   export let image = 'https://www.samcheng.co/card.png';
 </script>
 
