@@ -252,7 +252,7 @@
           <div class="content-category">
             <p><strong>Contact</strong></p>
             <p>
-              <a href="mailto:sam@samalander.dev" target="_blank">sam@samalander.dev</a><br/>
+              <a href="mailto:sam@samcheng.co" target="_blank">sam@samcheng.co</a><br/>
               <a href="https://discord.com/users/588480933108121618" target="_blank">@samaland3r (Discord)</a>
             </p>
           </div>
@@ -295,7 +295,7 @@
 <footer class="footer">
   <div class="footer-left">
     <h3>Sam Cheng</h3>
-    <a href="mailto:sam@samalander.dev" target="_blank">sam@samalander.dev</a>
+    <a href="mailto:sam@samcheng.co" target="_blank">sam@samcheng.co</a>
   </div>
   <div class="footer-right">
     <a href="https://github.com/Samalander0/newsite2024" target="_blank">Source code for this site</a>
