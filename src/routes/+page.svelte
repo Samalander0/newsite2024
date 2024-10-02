@@ -201,7 +201,7 @@
       <div class="selector">
         <h2>My Work</h2>
         <div class="projects">
-          <a class="project" href="//habitual.studio" target="_blank" on:mouseover={() => {hoveredProject = 1}} on:focus={() => {hoveredProject = 3}}>
+          <a class="project" href="//tome.design" target="_blank" on:mouseover={() => {hoveredProject = 1}} on:focus={() => {hoveredProject = 3}}>
             <h3>Tome</h3>
             <p>A collection of curated hand-picked design inspiration sites, built to find exactly what you're looking for.</p>
           </a>
