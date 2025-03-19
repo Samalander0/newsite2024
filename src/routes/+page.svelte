@@ -164,6 +164,17 @@
         <div class="projects">
           <div class="project">
             <Carousel>
+              <img src="/project-screenshots/classmate-1.png" alt="project screenshot"/>
+              <img src="/project-screenshots/classmate-2.png" alt="project screenshot"/>
+              <img src="/project-screenshots/classmate-3.png" alt="project screenshot"/>
+            </Carousel>
+            <a class="project-info" href="//classmate.app" target="_blank">
+              <h3>Classmate</h3>
+              <p>Instant, AI-powered writing feedback, available for all.</p>
+            </a>
+          </div>
+          <div class="project">
+            <Carousel>
               <img src="/project-screenshots/tome-1.webp" alt="project screenshot"/>
               <img src="/project-screenshots/tome-2.webp" alt="project screenshot"/>
               <img src="/project-screenshots/tome-3.webp" alt="project screenshot"/>
@@ -184,34 +195,23 @@
               <p>Website created for Morado Development, a web agency in Summer of 2023.</p>
             </a>
           </div>
-          <div class="project">
-            <Carousel>
-              <img src="/project-screenshots/designspace-1.webp" alt="project screenshot"/>
-              <img src="/project-screenshots/designspace-2.webp" alt="project screenshot"/>
-              <img src="/project-screenshots/designspace-3.webp" alt="project screenshot"/>
-            </Carousel>
-            <a class="project-info" href="//designspace.vercel.app" target="_blank">
-              <h3>Design Space</h3>
-              <p>Artificial intelligence design thinking web app created in Winter of 2023.</p>
-            </a>
-          </div>
         </div>
       </div>
     {:else}
       <div class="selector">
         <h2>My Work</h2>
         <div class="projects">
-          <a class="project" href="//tome.design" target="_blank" on:mouseover={() => {hoveredProject = 1}} on:focus={() => {hoveredProject = 3}}>
+          <a class="project" href="//classmate.app" target="_blank" on:mouseover={() => {hoveredProject = 1}} on:focus={() => {hoveredProject = 1}}>
+            <h3>Classmate</h3>
+            <p>Instant, powered writing feedback powered by generative artificial intelligence, available for free for all.</p>
+          </a>
+          <a class="project" href="//tome.design" target="_blank" on:mouseover={() => {hoveredProject = 2}} on:focus={() => {hoveredProject = 2}}>
             <h3>Tome</h3>
             <p>A collection of curated hand-picked design inspiration sites, built to find exactly what you're looking for.</p>
           </a>
-          <a class="project" href="//mora.do" target="_blank" on:mouseover={() => {hoveredProject = 2}} on:focus={() => {hoveredProject = 1}}>
+          <a class="project" href="//mora.do" target="_blank" on:mouseover={() => {hoveredProject = 3}} on:focus={() => {hoveredProject = 3}}>
             <h3>Morado Development</h3>
             <p>The new website for Morado Development, combining advanced web effects and animations with clean design.</p>
-          </a>
-          <a class="project" href="//designspace.vercel.app" target="_blank" on:mouseover={() => {hoveredProject = 3}} on:focus={() => {hoveredProject = 2}}>
-            <h3>Design Space</h3>
-            <p>Artificial intelligence powered website aiming to make design thinking easier and more accessible.</p>
           </a>
           <div class="selection-box">
             <div class="top-dots"></div>
@@ -224,6 +224,11 @@
         <div class="screen">
           <div class="images">
             <Carousel>
+              <img src="/project-screenshots/classmate-1.png" alt="project screenshot"/>
+              <img src="/project-screenshots/classmate-2.png" alt="project screenshot"/>
+              <img src="/project-screenshots/classmate-3.png" alt="project screenshot"/>
+            </Carousel>
+            <Carousel>
               <img src="/project-screenshots/tome-1.webp" alt="project screenshot"/>
               <img src="/project-screenshots/tome-2.webp" alt="project screenshot"/>
               <img src="/project-screenshots/tome-3.webp" alt="project screenshot"/>
@@ -232,11 +237,6 @@
               <img src="/project-screenshots/morado-1.webp" alt="project screenshot"/>
               <img src="/project-screenshots/morado-2.webp" alt="project screenshot"/>
               <img src="/project-screenshots/morado-3.webp" alt="project screenshot"/>
-            </Carousel>
-            <Carousel>
-              <img src="/project-screenshots/designspace-1.webp" alt="project screenshot"/>
-              <img src="/project-screenshots/designspace-2.webp" alt="project screenshot"/>
-              <img src="/project-screenshots/designspace-3.webp" alt="project screenshot"/>
             </Carousel>
           </div>
         </div>
