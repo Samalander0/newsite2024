@@ -20,7 +20,7 @@
 		"@vercel/analytics": "^1.1.1",
 		"dayjs": "^1.11.10",
 		"gsap": "^3.12.4",
-		"marked": "^16.0.0",
+		"marked": "^15.0.0",
 		"sass": "^1.69.5",
 		"svelte-typewriter": "^3.2.2"
 	}
