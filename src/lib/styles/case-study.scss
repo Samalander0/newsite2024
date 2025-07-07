@@ -1,0 +1,39 @@
+.page-main {
+  padding: 20vh 10vw 4rem 10vw;
+  display: grid;
+  place-items: center;
+
+  h1 {
+    font-size: 3rem;
+  }
+  .subtitle {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: rgb(0 0 0 / 0.5);
+
+    display: block;
+  }
+
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  img {
+    max-width: 100%;
+    margin: 2rem 0;
+  }
+
+  p {
+    color: rgb(0 0 0 / 0.75);
+
+    strong {
+      font-weight: 500;
+    }
+  }
+
+  .page-content {
+    max-width: 70ch;
+  }
+}

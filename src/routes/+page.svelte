@@ -106,7 +106,7 @@
         <span>Designer</span>
         <span>Developer</span>
         <span>Student</span>
-        <span>Maker</span>
+        <span>Creative</span>
       </Typewriter>
     </span>
   </h1>
@@ -205,7 +205,7 @@
             <h3>Classmate</h3>
             <p>Instant, powered writing feedback powered by generative artificial intelligence, available for free for all.</p>
           </a>
-          <a class="project" href="//tome.design" target="_blank" on:mouseover={() => {hoveredProject = 2}} on:focus={() => {hoveredProject = 2}}>
+          <a class="project" href="//tome-design.vercel.app" target="_blank" on:mouseover={() => {hoveredProject = 2}} on:focus={() => {hoveredProject = 2}}>
             <h3>Tome</h3>
             <p>A collection of curated hand-picked design inspiration sites, built to find exactly what you're looking for.</p>
           </a>
